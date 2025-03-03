@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deekshan's Magazines</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+        }
+
+        body {
+            background: #f5f5f5;
+        }
+
+        .header {
+            background: #2c3e50;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+
+        .magazine-carousel {
+            overflow: hidden;
+            position: relative;
+            padding: 3rem 0;
+            background: #ecf0f1;
+        }
+
+        .magazine-track {
+            display: flex;
+            animation: scroll 30s linear infinite;
+        }
+
+        .magazine-item {
+            min-width: 300px;
+            margin: 0 2rem;
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+            transition: transform 0.3s;
+            border-radius: 10px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .magazine-item:hover {
+            transform: scale(1.05);
+        }
+
+        .magazine-thumbnail {
+            width: 100%;
+            height: 400px;
+            object-fit: cover;
+            border-bottom: 3px solid #e74c3c;
+        }
+
+        .magazine-info {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        @keyframes scroll {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        .content-section {
+            max-width: 1200px;
+            margin: 3rem auto;
+            padding: 2rem;
+        }
+
+        /* Pause animation on hover */
+        .magazine-carousel:hover .magazine-track {
+            animation-play-state: paused;
+        }
+    </style>
+</head>
+<body>
+    <header class="header">
+        <h1>📚 Deekshan's Magazines</h1>
+        <p>Find the magazines below</p>
+    </header>
+
+    <section class="magazine-carousel">
+        <div class="magazine-track">
+            <!-- Magazine 1 -->
+            <div class="magazine-item">
+                <img src="./image/magazine1.jpg" alt="Tech Monthly" class="magazine-thumbnail" for="img1" >
+                <a href="https://www.spincotech.com/epub/2025/january2025/" target="_blank" id="img1">Click here</a>
+                <div class="magazine-info">
+                    <h3>UNIFIED-OMIC APPROACH</h3>
+                    <p>Issue #45 - June 2024</p>
+                </div>
+            </div>
+
+            <!-- Magazine 2 -->
+            <div class="magazine-item">
+                <img src="./image/magazine2.jpg" alt="Design Today" class="magazine-thumbnail">
+                <div class="magazine-info">
+                    <h3>6th NATIONAL CONFERENCE</h3>
+                    <p>Issue #46 -July 2024</p>
+                </div>
+            </div>
+
+            <!-- Add more magazines following the same pattern -->
+            <!-- Duplicate the above blocks for more magazines -->
+        </div>
+    </section>
+
+    <section class="content-section">
+        <h2>Latest Issues</h2>
+        <div class="magazine-grid">
+            <!-- Add static magazine entries here -->
+        </div>
+    </section>
+
+    <script>
+        // Duplicate magazine items for infinite scroll effect
+        const track = document.querySelector('.magazine-track');
+        track.innerHTML += track.innerHTML;
+    </script>
+</body>
+</html>
